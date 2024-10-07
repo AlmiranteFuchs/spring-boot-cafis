@@ -1,0 +1,19 @@
+<div th:fragment="coffeeListFragment(category)">
+    <nav class="scroll medium-padding">
+        <div th:each="coffees : ${category.value}">
+            <article th:each="coffee : ${coffees}" class="card">
+                <div class="body">
+                    <img th:src="${coffee.image}" class="responsive small no-padding"
+                         src="https://www.beercss.com/beer-and-woman.svg">
+                    <div class="padding">
+                        <h5 th:text="${coffee.name}">Title</h5>
+                        <div>
+                            <em>R$ <span th:text="${coffee.price}">0,00</span> </em>
+                            <p th:text="${coffee.description}"> Lorem ipsum ....</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </nav>
+</div>

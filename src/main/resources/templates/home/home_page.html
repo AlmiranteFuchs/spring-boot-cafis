@@ -1,0 +1,15 @@
+<div th:replace="~{base_page :: base_page('home_page', ~{::#content})}">
+    <div class="light" id="content">
+        <!--        <img src="https://www.beercss.com/beer-and-woman.svg" class="responsive round">-->
+        <!--        <h3>Welcome</h3>-->
+        <!--        <h5>The beer is ready!</h5>-->
+        <div th:if="${coffeByCategory.size() > 0}">
+            <div th:each="category : ${coffeByCategory}">
+                <h1><em><em th:text="${category.key}"></em> coffee</em></h1>
+                <div th:if="${category.value.size() > 0}" class="medium-margin">
+                    <div th:replace="~{components/coffee_card :: coffeeListFragment(${category})}"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
